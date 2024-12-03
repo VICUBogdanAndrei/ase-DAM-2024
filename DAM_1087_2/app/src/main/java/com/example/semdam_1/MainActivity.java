@@ -1,5 +1,6 @@
 package com.example.semdam_1;
 
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -22,6 +23,9 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -185,12 +189,65 @@ public class MainActivity extends AppCompatActivity {
         }
         else if(item.getItemId()==R.id.optiune2)
         {
-            //TO DO
+            ExtractXML extractXML = new ExtractXML()
+            {
+                @Override
+                protected void onPostExecute(InputStream inputStream) {
+                    listaMasini.addAll(this.masinaList);
+
+                    CustomAdapter adapter  = new CustomAdapter(getApplicationContext(),
+                            R.layout.elem_list_view,
+                            listaMasini,
+                            getLayoutInflater());
+
+
+                    listView.setAdapter(adapter);
+
+                }
+            };
+            try {
+                extractXML.execute(new URL("https://pastebin.com/raw/Duf43Nyq"));
+            } catch (MalformedURLException e) {
+                    throw new RuntimeException(e);
+            }
             return true;
         }
         else if(item.getItemId()==R.id.optiune3)
         {
-            //TO DO
+
+
+            ExtractJSON extractJSON = new ExtractJSON()
+            {
+
+                ProgressDialog dialog;
+
+                @Override
+                protected void onPreExecute() {
+                    dialog =new ProgressDialog(MainActivity.this);
+                    dialog.setMessage("Please wait...");
+                    dialog.show();
+                }
+
+                @Override
+                protected void onPostExecute(String s) {
+                    dialog.cancel();
+                    listaMasini.addAll(masinaListJSON);
+
+                    CustomAdapter adapter  = new CustomAdapter(getApplicationContext(),
+                            R.layout.elem_list_view,
+                            listaMasini,
+                            getLayoutInflater());
+
+
+                    listView.setAdapter(adapter);
+                }
+            };
+
+            try {
+                extractJSON.execute(new URL("https://pastebin.com/raw/L84K1DxZ"));
+            } catch (MalformedURLException e) {
+                throw new RuntimeException(e);
+            }
             return true;
         }
 

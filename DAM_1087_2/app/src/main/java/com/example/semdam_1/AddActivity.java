@@ -44,7 +44,7 @@ public class AddActivity extends AppCompatActivity {
         //populare spinner cu vector de stringuri
         String[] culori = {"ALB", "NEGRU", "ROSU", "GRI","ALBASTRU"};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
-                androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,
+                android.R.layout.simple_spinner_dropdown_item,
                 culori);
 
         Spinner spinerCulori = findViewById(R.id.spinnerCulori);

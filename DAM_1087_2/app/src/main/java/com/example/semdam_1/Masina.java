@@ -69,6 +69,6 @@ public class Masina implements Serializable {
                 '}';
     }
 
-
-
+    public Masina() {
+    }
 }

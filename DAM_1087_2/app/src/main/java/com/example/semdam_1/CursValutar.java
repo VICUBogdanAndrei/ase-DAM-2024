@@ -67,4 +67,7 @@ public class CursValutar implements Serializable {
                 ", cursXAU='" + cursXAU + '\'' +
                 '}';
     }
+
+    public CursValutar() {
+    }
 }
