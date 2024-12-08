@@ -1,9 +1,27 @@
 package com.example.semdam_1;
 
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
+
 import java.io.Serializable;
 import java.util.Date;
 
+@Entity(tableName = "masini")
 public class Masina implements Serializable {
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    @PrimaryKey(autoGenerate = true)
+    private int id;
+
     private String marca;
     private Date dataFabricatie;
     private float pret;
@@ -69,6 +87,7 @@ public class Masina implements Serializable {
                 '}';
     }
 
+    @Ignore
     public Masina() {
     }
 }

@@ -116,6 +116,11 @@ public class AddActivity extends AppCompatActivity {
                         //Toast.makeText(getApplicationContext(),
                          //       "Masina creata!", Toast.LENGTH_LONG).show();
 
+                        //-------------------
+                        MasiniDB database = MasiniDB.getInstance(getApplicationContext());
+                        database.getMasiniDao().insert(masina);
+
+
                         intent.putExtra(ADD_MASINA, masina);
                         setResult(RESULT_OK, intent);
                         finish();
