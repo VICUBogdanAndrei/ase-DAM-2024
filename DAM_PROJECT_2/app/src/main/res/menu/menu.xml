@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/incarcaFisierJSON"
+        android:title="Incarca Fisier JSON" />
+
+    <item
+        android:id="@+id/incarcaFisierXML"
+        android:title="Incarca Fisier XML" />
+
+    <item
+        android:id="@+id/salveazaDate"
+        android:title="Salveaza Date" />
+
+    <item
+        android:id="@+id/incarcaDateJSON"
+        android:title="Incarca Date JSON" />
+
+    <item
+        android:id="@+id/incarcaDateXML"
+        android:title="Incarca Date XML" />
+
+    <item
+        android:id="@+id/despre"
+        android:title="Despre" />
+</menu>
